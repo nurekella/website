@@ -1,0 +1,126 @@
+a.menu_item:nth-child(1){
+	color: #757575;
+}
+
+a.menu_item:nth-child(3){
+	color: #4285F4;
+}
+
+a.menu_item:nth-child(3) ~ div {
+	transform: translate(328px);
+	-webkit-transform: translate(328px);
+	background-color: #4285F4;
+	transition: all .33s linear;
+	-webkit-transition: all .33s linear;
+}
+
+.content {
+	margin: 0px;
+	padding: 0px;
+}
+
+.text {
+	margin: 20px;
+	padding: 20px;
+	font-size: 20px;
+	text-align: justify;
+	vertical-align: middle;
+}
+
+/*  Первый слайдер */
+
+.hiden {
+	display: none;
+}
+
+.top-slider-content{
+	height: 100%;
+	height: auto;
+	margin: 0px;
+	padding: 0px
+}
+
+.control_panel{
+	position: relative;
+	top: -25px;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.control_button{
+	width: 10px;
+	height: 10px;
+	margin: 0 2px; 
+	border: 1px solid white;
+	border-radius: 50%;
+	float: left;
+}
+
+.active_state_control_button{
+	transition: 0.5s all;
+	background-color: white;
+}
+
+/* Второй слайдер */
+
+.box-slider{
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+ul.auto-slider{
+	display: flex;
+	justify-content: center;
+	padding: 0px;
+	margin: 2px;
+}
+
+ul.auto-slider li{
+	width: 80px;
+	height: 400px;
+	padding: 0 1px;
+	overflow: hidden;
+	cursor: pointer;
+	display: block;
+	-webkit-box-shadow: 5px 5px 10px black;
+	-moz-box-shadow: 5px 5px 10px black;
+	box-shadow: 5px 5px 10px black;
+}
+
+ul.auto-slider img{
+	margin:0;
+	height: 500px;
+}
+
+.auto-slider > li:hover{
+	width: 1000px;
+	transition: all 1s;
+	-webkit-box-shadow: 0px 5px 10px #DE00D0;
+	-moz-box-shadow: 0px 5px 10px #DE00D0;
+	box-shadow: 0px 5px 10px #DE00D0;
+}
+
+.auto-slider > li{
+	width: 65px;
+	transition: all 1.5s;
+	-webkit-box-shadow: 5px 5px 10px black;
+	-moz-box-shadow: 5px 5px 10px black;
+	box-shadow: 5px 5px 10px black;
+}
+/* уменьшить картинку при наведении на блок */
+ul.auto-slider:hover li:nth-child(3){
+	width: 80px;
+}
+/* Если выбрана 3 картинка, оставить большой */
+ul.auto-slider > li:nth-child(3):hover{
+	width: 1000px;
+}
+/* Делает большой центральную картинку */
+.auto-slider > li:nth-child(3){
+	width: 1000px;
+}
+/* Убирает отступ 1 пиксель у левой плитки */
+ul.auto-slider > li:nth-child(1){
+	padding: 0px;
+}

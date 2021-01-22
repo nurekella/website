@@ -1,0 +1,42 @@
+.file_not_fount {
+	padding: 50px;
+	height: 500px;
+}
+
+.wrapper {
+	display: flex;
+	padding: 20px;
+	margin: 20px;
+}
+
+.wrapper > a {
+	margin: auto;
+}
+
+.oops{
+	font-family: "PT Sans", "Droid Sans", Arial, Sans-serif;
+	text-align: center;
+	font-size: 1em;
+	line-height: 1.5;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin: auto;
+}
+
+.back_button {
+	color: #ffffff;
+	text-decoration: none;
+	user-select: none;
+	background: #D44B38;
+	padding: .5em 1.5em;
+	outline: none;
+	margin: 5px;
+	border: 1px solid #D44B38;
+}
+
+.back_button:hover {
+	background: #E2604F;
+	border: 1px solid #FF0017;
+	transition: .3s ease-in-out;
+}

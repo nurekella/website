@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+	<!-- Здесь находятся разные метаданные -->
+	<head>
+		<meta charset='utf-8'>
+		<meta content="сайт">
+		<title>Мой первый сайт</title>
+		<link href="{{url_for('static', filename='images/favicon.png')}}" rel="shortcut icon" type="image/x-icon">
+		<link href="{{url_for('static', filename='css/index.css')}}" rel="stylesheet" type="text/css">
+		<link href="{{url_for('static', filename='css/news.css')}}" rel="stylesheet" type="text/css">
+
+		<script type="text/javascript" src="https://kit.fontawesome.com/f8dc58df69.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/jquery-3.5.1.min.js')}}"></script>
+		<!-- Подключает скрипт проверки работоспособности javascript -->
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/test_working_js.js')}}"></script>
+		<!-- Подключает скрипт добавляющий кнопку вверх работающую на javascript -->
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/scroll.js')}}"></script>
+		<!-- Подключает скрипт слайдера работающего на javascript -->
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/top-slider.js')}}"></script>
+	</head>
+	
+	<!-- Шапка сайта -->
+	<headre>
+		<div class="header">
+			<div></div>
+			<div id="logo"><img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100"></div>
+			<div id="site_title"><h1>Мой первый сайт</h1></div>
+			<div id="logo"><img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100"></div>
+			<div></div>
+		</div>
+
+	</headre>
+
+	<!-- Тело сайта -->
+	<body>
+		<!-- Кнопка для скрола вверх -->
+		<div id="toTop"><div class="arrow"></div></div>
+		<!-- тест работы javascript -->
+		<!-- Если javascript не отключен, скритп test_working_js.js добавит клас "hiden", который скроет этот блок -->
+		<div id=test_working_js class="warning">
+			<p>Упс, что-то пошло не так... Включите javascript для корректного отображения страницы.</p>
+		</div>
+
+		<nav>
+			<div class="menu">
+				<div class="menu_list">
+					<a class="menu_item" href="index"><i class="icon fas fa-bars"></i>Главная</a>
+					<a class="menu_item" href="news"><i class="icon far fa-newspaper"></i>Новости</a>
+					<a class="menu_item" href="gallery"><i class="icon far fa-image"></i>Галерея</a>
+					<a class="menu_item" href="about"><i class="icon fas fa-address-card"></i>О нас</a>
+					{% if session %}
+						{% if session.token %}
+							<a class="menu_item" href="logout?token={{session.token}}"><i class="fas fa-sign-out-alt"></i>Выйти</a>	
+						{% endif %}
+					{% endif %}
+					<div class="line"></div>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="center">
+			<div>
+				<aside>
+					<div class="st_nav">
+					  <ul class="st_ul">
+					    <li class="st_li st_li_1"><a href="index" class="st_a anchor">Главная</a></li>
+					    <li class="st_li st_li_3"><a href="news" class="st_a anchor">Новости</a></li>
+					    <li class="st_li st_li_2"><a href="gallery" class="st_a anchor">Галерея</a></li>
+					    <li class="st_li st_li_4"><a href="about" class="st_a anchor">О нас</a></li>
+						{% if session %}
+							{% if session.token %}
+								<li class="st_li st_li_5"><a href="add_post?token={{session.token}}" class="st_a anchor">Добавить пост</a>	
+							{% endif %}
+						{% endif %}
+					  </ul>
+					</div>
+				</aside>
+			</div>
+
+			<div class="news">
+				<!-- Первая секция -->
+				{% for post in posts %}
+					<section>
+						<!-- title -->
+						<h3 class="post_title">{{ post[1] }}</h3>
+						<!-- plot -->
+						<p>{{ post[2] }}</p>
+						<!-- date -->
+						<p><time datatime="{{ post[4] }}">{{ post[4] }}</time></p>
+						<br/>
+						<div class="button_wrapper">
+							{% if session %}
+								{% if session.token %}
+									<a class="edit_article" href="/update_post?id={{post[0]}}&token={{session.token}}"> Изменить статью </a>
+									<a class="delete_article" href="/delete_post?id={{post[0]}}&token={{session.token}}"> Удалить статью </a>	
+								{% endif %}
+							{% endif %}
+							<a class="view_article" href="/view_post?id={{post[0]}}"> Смотреть статью </a>
+						</div>
+					</section>
+
+				 {% endfor %}
+
+				<!-- Панель переключения страниц -->
+				{% if pages %}
+					<div class="pages_panel">
+						<div>
+							{% for page in pages %}
+								<a href="/news?page={{page[1]}}" class="page_button">{{page[0]}}</a>
+							{% endfor %}
+						</div>
+					</div>
+				{% endif %}	
+			</div>
+			<!-- Пустой блок справа от тела сайта -->
+			<div></div>
+		<!-- Конец блока center -->
+		</div>
+		<footer>
+			<div class="footer_grid">
+				<div>
+					<img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100">
+				</div>
+
+				<div>
+					<p class="footer_title">О нас:</p>
+					<p class="footer_item"> Условия использования</p>
+					<p class="footer_item"> Конфиденциальность</p>
+					<p class="footer_item"> Внести вклад в развитие</p>
+				</div>
+				<div>
+					<p class="footer_title">Контактные данные:</p>
+					<p class="footer_item">Владислав Лукьянчук</p>
+					<p class="footer_item">public_email_vlc@ukr.net</p>
+					<p class="footer_item">@username</p>
+				</div>
+
+				<div>
+					<p class="footer_title">Поддержка:</p>
+					<p class="footer_item">FAQ</p>
+					<p class="footer_item">Чат-бот</p>
+					<p class="footer_item">Форум</p>
+				</div>
+				
+				<!-- Ссылки на социальные сети -->
+				<div>
+					<div>
+						<a class="social_networks telegram" href="#"><i class="fab fa-telegram-plane"></i></a>
+						<a class="social_networks vk" href="#"><i class="fab fa-vk"></i></a>
+						<a class="social_networks fb" href="#"><i class="fab fa-facebook-f"></i></a>
+					</div>
+					<div class="share">
+						Поделиться
+					</div>
+				</div>
+			</div>
+			<!-- Нижняя линия копирайта -->
+			<div class="copyrigth">
+				<div> © 2021 copyrigth text</div>
+			</div>
+		</footer>
+		</div>
+	</body>
+</html>

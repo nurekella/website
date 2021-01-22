@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+	<!-- Здесь находятся разные метаданные -->
+	<head>
+		<meta charset='utf-8'>
+		<meta content="сайт">
+		<title>Мой первый сайт</title>
+		<link href="{{url_for('static', filename='images/favicon.png')}}" rel="shortcut icon" type="image/x-icon">
+		<link href="{{url_for('static', filename='css/index.css')}}" rel="stylesheet" type="text/css">
+	
+		<script type="text/javascript" src="https://kit.fontawesome.com/f8dc58df69.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/jquery-3.5.1.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/test_working_js.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/scroll.js')}}"></script>
+	</head>
+	
+	<!-- Шапка сайта -->
+	<headre>
+		<div class="header">
+			<div></div>
+			<div id="logo"><img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100"></div>
+			<div id="site_title"><h1>Мой первый сайт</h1></div>
+			<div id="logo"><img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100"></div>
+			<div></div>	
+		</div>
+	</headre>
+
+	<!-- Тело сайта -->
+	<body>
+		<!-- Кнопка для скрола вверх -->
+		<div id="toTop"><div class="arrow"></div></div>
+		<!--  -->
+		<div id=test_working_js class="warning">
+			<p>Упс, что-то пошло не так... Включите javascript для корректного отображения страницы.</p>
+		</div>
+		<nav>
+			<div class="menu">
+				<div class="menu_list">
+					<a class="menu_item" href="index"><i class="icon fas fa-bars"></i>Главная</a>
+					<a class="menu_item" href="news"><i class="icon far fa-newspaper"></i>Новости</a>
+					<a class="menu_item" href="gallery"><i class="icon far fa-image"></i>Галерея</a>
+					<a class="menu_item" href="about"><i class="icon fas fa-address-card"></i>О нас</a>
+					{% if session %}
+						{% if session.token %}
+							<a class="menu_item" href="logout?token={{session.token}}"><i class="fas fa-sign-out-alt"></i>Выйти</a>	
+						{% endif %}
+					{% endif %}
+					<div class="line"></div>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="center">
+			<aside>
+				<div>
+					<div class="st_nav">
+					  <ul class="st_ul">
+					    <li class="st_li st_li_1"><a href="index" class="st_a anchor">Главная</a></li>
+					    <li class="st_li st_li_3"><a href="news" class="st_a anchor">Новости</a></li>
+					    <li class="st_li st_li_2"><a href="gallery" class="st_a anchor">Галерея</a></li>
+					    <li class="st_li st_li_4"><a href="about" class="st_a anchor">О нас</a></li>
+						{% if session %}
+							{% if session.token %}
+								<li class="st_li st_li_5"><a href="add_post?token={{session.token}}" class="st_a anchor">Добавить пост</a>	
+							{% endif %}
+						{% endif %}
+					  </ul>
+					</div>
+				</div>
+			</aside>
+
+			<div class="content">
+				<!-- Первая секция -->
+				<section>
+					<div class="articl_title"> 
+						<h2>Что такое HTML?</h2>
+					</div>
+					<hr>
+					<img class="image" src="{{url_for('static', filename='images/html_baner.jpg')}}">
+					<p>
+						<b>HTML</b> <i>(HyperText Markup Language)</i> — язык разметки (маркировки) гипертекста. Гипертекст своим развитием обязан интернету, хоть и создавался он совсем не для того. HTML дает возможность производить переход от одной части текста к другой, и, что замечательно, эти части могут храниться на совершенно разных компьютерах.
+					</p>
+					<p class="info"> HTML не стоит путать с языками программирования, он создан специально для разметки вэб-страниц. Именно язык разметки дает браузеру необходимые инструкции о том, как отображать тексты и другие элементы страницы на мониторе.
+					</p>
+					<p>
+						Важно заметить, что не только различные браузеры, но и различные их версии могут по-разному воспринимать и отображать на экране код. Следовательно, некоторые элементы корректно выглядящие в браузере Operа могут выглядеть иначе в Internet Explorer и других браузерах.
+
+						При верстке (грубо говоря, создании страниц) HTML-страниц это необходимо помнить, и просматривать их в самых популярных браузерах типа Mozilla Firefox, Internet Explorer и Operа.
+
+						Код разметки в HTML состоит из так называемых «тегов». Теги предоставляют информацию браузерам о форматировании и разметке страницы. Название тега заключается в угловые скобки «<» и «>». Некоторые тэги бывают открывающимися и закрывающимися, например, тег b, который делает текст жирным.
+					</p>
+				</section>
+				
+				<!-- Вторая секция -->
+				<section>
+					<div class="articl_title">
+						<h2>Очень коротко о CSS</h2>
+					</div>
+					<hr>
+					<img class="image" src="{{url_for('static', filename='images/css_baner.jpg')}}">
+					<p><b>CSS</b> — <i>Cascading Style Sheets</i> — это каскадные таблицы стилей. По сути — язык, который отвечает за описание внешнего вида HTML-документа. Подавляющее большинство современных веб-сайтов работают на основе связки HTML+CSS.
+
+						Теперь ответим на вопрос о том, что делает CSS. Всё просто: если HTML структурирует контент на странице, то CSS позволяет отформатировать его, сделать более привлекательным для читателя. Изначально веб-разработчики использовали исключительно HTML — так было на заре развития интернет-технологий. С помощью разметки можно было выделить параграф, заголовок, изменить начертание текста. А большего и не требовалось.
+
+						Со временем этих возможностей стало мало — и появилась технология форматирования без изменения самого содержимого и структуры документа. CSS решил проблему «зоопарка» тегов форматирования, когда разные браузеры поддерживали разные теги. Их унификация и единая база упростили работу с веб-документами и облегчили жизнь веб-мастерам.
+					</p>
+					<p class="info"> CSS используется для определения стилей (правил) 
+						оформления документов — включая дизайн, вёрстку и вариации макета для различных устройств и размеров экрана.
+					</p>
+				</section>
+
+				<!-- Третья секция -->
+				<section>
+					<div class="articl_title">
+						<h2>Несколько слов о JS</h2>
+					</div>
+					<hr>
+					<img class="image" src="{{url_for('static', filename='images/js_baner.jpg')}}">
+					<p><b>JavaScript</b> ("JS" для краткости) — это полноценный динамический язык программирования, который применяется к HTML документу, и может обеспечить динамическую интерактивность на веб-сайтах. Его разработал Brendan Eich, сооснователь проекта Mozilla, Mozilla Foundation и Mozilla Corporation.
+
+					JavaScript невероятно универсален и дружелюбен к новичкам. Обладая большим опытом, вы сможете создавать игры, анимированную 2D и 3D графику, полномасштабные приложения с базами данных и многое другое!
+
+					JavaScript сам по себе довольно компактный, но очень гибкий. Разработчиками написано большое количество инструментов поверх основного языка JavaScript, которые разблокируют огромное количество дополнительных функций с очень небольшим усилием. К ним относятся:
+
+				    Программные интерфейсы приложения (API), встроенные в браузеры, обеспечивающие различные функциональные возможности, такие как динамическое создание HTML и установку CSS стилей, захват и манипуляция видеопотоком, работа с веб-камерой пользователя или генерация 3D графики и аудио сэмплов.
+				    
+				    Сторонние API позволяют разработчикам внедрять функциональность в свои сайты от других разработчиков, таких как Twitter или Facebook.
+				    Также вы можете применить к вашему HTML сторонние фреймворки и библиотеки, что позволит вам ускорить создание сайтов и приложений.
+					</p>
+				</section>
+			</div>
+			<!-- Пустой блок справа от тела сайта -->
+			<div></div>
+		<!-- Конец блока center -->
+		</div>
+		<footer>
+			<div class="footer_grid">
+				<div>
+					<img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100">
+				</div>
+
+				<div>
+
+					<p class="footer_title">О нас:</p>
+					<p class="footer_item"> Условия использования</p>
+					<p class="footer_item"> Конфиденциальность</p>
+					<p class="footer_item"> Внести вклад в развитие</p>
+				</div>
+				<div>
+					<p class="footer_title">Контактные данные:</p>
+					<p class="footer_item">Владислав Лукьянчук</p>
+					<p class="footer_item">public_email_vlc@ukr.net</p>
+					<p class="footer_item">@username</p>
+				</div>
+
+				<div>
+					<p class="footer_title">Поддержка:</p>
+					<p class="footer_item">FAQ</p>
+					<p class="footer_item">Чат-бот</p>
+					<p class="footer_item">Форум</p>
+				</div>
+				
+				<!-- Ссылки на социальные сети -->
+				<div>
+					<div>
+						<a class="social_networks telegram" href="#"><i class="fab fa-telegram-plane"></i></a>
+						<a class="social_networks vk" href="#"><i class="fab fa-vk"></i></a>
+						<a class="social_networks fb" href="#"><i class="fab fa-facebook-f"></i></a>
+					</div>
+					<div class="share">
+						Поделиться
+					</div>
+				</div>
+			</div>
+			<!-- Нижняя линия копирайта -->
+			<div class="copyrigth">
+				<div> © 2021 copyrigth text</div>
+			</div>
+		</footer>
+		</div>
+	</body>
+</html>

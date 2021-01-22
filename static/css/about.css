@@ -1,0 +1,53 @@
+a.menu_item:nth-child(1){
+	color: #757575;
+}
+
+a.menu_item:nth-child(4){
+	color: #FBBC05;
+}
+
+a.menu_item:nth-child(4) ~ div {
+	transform: translate(492px);
+	-webkit-transform: translate(492px);
+	background-color: #FBBC05;
+	transition: all .33s linear;
+	-webkit-transition: all .33s linear;
+}
+
+p {
+	font-family: "PT Sans", "Droid Sans", Arial, Sans-serif;
+	color: #222;
+	line-height: 1.5;
+	margin: 0 0 1.5rem 0;
+	font-size: 1rem;
+}
+
+h3 {
+	display: flex;
+	justify-content: center;
+	vertical-align: middle;
+	margin-top: 0;
+	color: #333;
+	margin-bottom: .625em;
+	line-height: 1.25;
+	font-weight: 700;
+}
+
+.block {
+	padding: 20px;
+}
+
+.icons {
+	margin: 15px 20px;
+	float: left;
+}
+
+.content {
+	padding: 0px;
+
+}
+
+.baner{
+	width: 100%;
+	height: 400px;
+}

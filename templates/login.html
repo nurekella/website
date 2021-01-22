@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset= 'utf-8'>
+		<link href="{{url_for('static', filename='css/login.css')}}" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+		<div>
+			{% if error %}
+			<div class="warning">
+				<p>{{error}}</p>
+			</div>
+			{% endif %}
+		</div>
+		<div class="center">
+			<div>			
+				<form action="{{url_for('login')}}" method="post">
+					<span class="title">Авторизация</span>
+					<div class="wrapper">
+						<input class="edit" name="login" required placeholder="Логин">
+					</div>
+					<div class="wrapper">		
+						<input class="edit" name="password" type="password" required placeholder="Пороль">
+					</div>
+					{% if token %}
+						<input name="temp_token" type="hidden" value="{{token}}">
+					{% endif %}
+					<div class="wrapper">	
+						<input class="button" type="submit" value="Ввойти">
+					</div>
+				</form>		
+			</div>
+		</div>
+	</body>
+</html>

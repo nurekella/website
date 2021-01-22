@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+	<!-- Здесь находятся разные метаданные -->
+	<head>
+		<meta charset='utf-8'>
+		<meta content="сайт">
+		<title>Мой первый сайт</title>
+		<link href="{{url_for('static', filename='images/favicon.png')}}" rel="shortcut icon" type="image/x-icon">
+		<link href="{{url_for('static', filename='css/index.css')}}" rel="stylesheet" type="text/css">
+		<link href="{{url_for('static', filename='css/about.css')}}" rel="stylesheet" type="text/css">
+		
+		<script type="text/javascript" src="https://kit.fontawesome.com/f8dc58df69.js" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/jquery-3.5.1.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/test_working_js.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='scripts/scroll.js')}}"></script>
+	</head>
+	
+	<!-- Шапка сайта -->
+	<headre>
+		<div class="header">
+			<div></div>
+			<div id="logo"><img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100"></div>
+			<div id="site_title"><h1>Мой первый сайт</h1></div>
+			<div id="logo"><img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100"></div>
+			<div></div>	
+		</div>
+	</headre>
+
+	<!-- Тело сайта -->
+	<body>
+		<!-- Кнопка для скрола вверх -->
+		<div id="toTop"><div class="arrow"></div></div>
+		<!-- Если javascript не отключен, скритп test_working_js.js добавит клас "hiden", который скроет этот блок -->
+		<div id=test_working_js class="warning">
+			<p>Упс, что-то пошло не так... Включите javascript для корректного отображения страницы.</p>
+		</div>
+
+		<nav>
+			<div class="menu">
+				<div class="menu_list">
+					<a class="menu_item" href="index"><i class="icon fas fa-bars"></i>Главная</a>
+					<a class="menu_item" href="news"><i class="icon far fa-newspaper"></i>Новости</a>
+					<a class="menu_item" href="gallery"><i class="icon far fa-image"></i>Галерея</a>
+					<a class="menu_item" href="about"><i class="icon fas fa-address-card"></i>О нас</a>
+					{% if session %}
+						{% if session.token %}
+							<a class="menu_item" href="logout?token={{session.token}}"><i class="fas fa-sign-out-alt"></i>Выйти</a>	
+						{% endif %}
+					{% endif %}
+					<div class="line"></div>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="center">
+			<aside>
+				<div>
+					<div class="st_nav">
+					  <ul class="st_ul">
+					    <li class="st_li st_li_1"><a href="index" class="st_a anchor">Главная</a></li>
+					    <li class="st_li st_li_3"><a href="news" class="st_a anchor">Новости</a></li>
+					    <li class="st_li st_li_2"><a href="gallery" class="st_a anchor">Галерея</a></li>
+					    <li class="st_li st_li_4"><a href="about" class="st_a anchor">О нас</a></li>
+						{% if session %}
+							{% if session.token %}
+								<li class="st_li st_li_5"><a href="add_post?token={{session.token}}" class="st_a anchor">Добавить пост</a>	
+							{% endif %}
+						{% endif %}
+					  </ul>
+					</div>
+				</div>
+			</aside>
+
+			<div class="content">
+				<img class="baner" src="{{url_for('static', filename='images/about.jpg')}}" alt="Логотип HTML5" width="100" height="100">
+
+				<div class="block">
+					<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h3>
+					<div class="icons">			
+						<img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100">
+					</div>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ita relinquet duas, de quibus etiam atque etiam consideret. Minime vero probatur huic disciplinae, de qua loquor, aut iustitiam aut amicitiam propter utilitates adscisci aut probari. Et harum quidem rerum facilis est et expedita distinctio. Illa sunt similia: hebes acies est cuipiam oculorum, corpore alius senescit; Quam tu ponis in verbis, ego positam in re putabam. Estne, quaeso, inquam, sitienti in bibendo voluptas? 
+					</p>
+				</div>
+				
+				<div class="block">
+					<div>
+						</div>
+							<h3>Quid, de quo nulla dissensio est?</h3>
+							<div class="icons">		
+								<img class="footer-images" src="{{url_for('static', filename='images/html.png')}}" alt="" width="50" height="70">
+								<img class="footer-images" src="{{url_for('static', filename='images/css.png')}}" alt="" width="50" height="70">
+								<img class="footer-images" src="{{url_for('static', filename='images/js.png')}}" alt="" width="50" height="70">
+							</div>
+						<div>
+						<p>
+							Quod autem principium officii quaerunt, melius quam Pyrrho; Quis Aristidem non mortuum diligit? Quamquam in hac divisione rem ipsam prorsus probo, elegantiam desidero. Quid est enim aliud esse versutum? At certe gravius. Quo modo autem philosophus loquitur? Non est ista, inquam, Piso, magna dissensio. Praeclare hoc quidem.
+						</p>
+					</div>
+
+					<div class="block">
+						<h3>Traditur, inquit, ab Epicuro ratio neglegendi doloris.</h3>
+						<div class="icons">		
+							<img class="footer-images" src="{{url_for('static', filename='images/python.png')}}" alt="" width="50" height="50">
+							<img class="footer-images" src="{{url_for('static', filename='images/postgresql.png')}}" alt="" width="50" height="50">
+							<img class="footer-images" src="{{url_for('static', filename='images/flask.png')}}" alt="" width="50" height="50">
+						</div>
+						<p>
+							Duo Reges: constructio interrete. Bonum integritas corporis: misera debilitas. Quae similitudo in genere etiam humano apparet. Dici enim nihil potest verius. Et certamen honestum et disputatio splendida! omnis est enim de virtutis dignitate contentio. Duarum enim vitarum nobis erunt instituta capienda. At iam decimum annum in spelunca iacet. Consequentia exquirere, quoad sit id, quod volumus, effectum. Si enim ita est, vide ne facinus facias, cum mori suadeas. Collige omnia, quae soletis: Praesidium amicorum. Idem iste, inquam, de voluptate quid sentit? Quae similitudo in genere etiam humano apparet.
+						</p>
+					</div>		
+				</div>
+			</div>
+			<!-- Пустой блок справа от тела сайта -->
+			<div></div>
+		<!-- Конец блока center -->
+		</div>
+		<footer>
+			<div class="footer_grid">
+				<div>
+					<img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100">
+				</div>
+
+				<div>
+
+					<p class="footer_title">О нас:</p>
+					<p class="footer_item"> Условия использования</p>
+					<p class="footer_item"> Конфиденциальность</p>
+					<p class="footer_item"> Внести вклад в развитие</p>
+				</div>
+				<div>
+					<p class="footer_title">Контактные данные:</p>
+					<p class="footer_item">Владислав Лукьянчук</p>
+					<p class="footer_item">public_email_vlc@ukr.net</p>
+					<p class="footer_item">@username</p>
+				</div>
+
+				<div>
+					<p class="footer_title">Поддержка:</p>
+					<p class="footer_item">FAQ</p>
+					<p class="footer_item">Чат-бот</p>
+					<p class="footer_item">Форум</p>
+				</div>
+				
+				<!-- Ссылки на социальные сети -->
+				<div>
+					<div>
+						<a class="social_networks telegram" href="#"><i class="fab fa-telegram-plane"></i></a>
+						<a class="social_networks vk" href="#"><i class="fab fa-vk"></i></a>
+						<a class="social_networks fb" href="#"><i class="fab fa-facebook-f"></i></a>
+					</div>
+					<div class="share">
+						Поделиться
+					</div>
+				</div>
+			</div>
+			<!-- Нижняя линия копирайта -->
+			<div class="copyrigth">
+				<div> © 2021 copyrigth text</div>
+			</div>
+		</footer>
+		</div>
+	</body>
+</html>

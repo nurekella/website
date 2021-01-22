@@ -1,0 +1,141 @@
+h3 {
+	font-family: "PT Sans", "Droid Sans", Arial, Sans-serif;
+	line-height: 1.5;
+	letter-spacing: 1px;
+	margin: 0px;
+	margin-top: 50px;
+	text-align: justify;
+	margin-left: 0px; 
+}
+
+a.menu_item:nth-child(1){
+	color: #757575;
+}
+
+a.menu_item:nth-child(2){
+	color: #34A853;
+}
+
+a.menu_item:nth-child(2) ~ div {
+	transform: translate(164px);
+	-webkit-transform: translate(164px);
+	background-color: #34A853;
+	transition: all .33s linear;
+	-webkit-transition: all .33s linear;
+}
+
+.post_title {
+	margin: 5px;
+	font-size: 20px;
+	font-weight: 500;
+}
+
+section {
+	background-color: #FFFFFF;
+	box-shadow: 2px 4px 10px black;
+	padding: 25px 15px;
+	margin-bottom: 15px;
+}
+
+.button_wrapper {
+	display: flex;
+	justify-content: right;
+}
+
+.view_article {
+	color: #ffffff;
+	text-decoration: none;
+	user-select: none;
+	background: #D44B38;
+	padding: .5em 1.5em;
+	outline: none;
+	margin: 5px;
+	border: 1px solid #D44B38;
+}
+
+.view_article:hover {
+	background: #E2604F;
+	border: 1px solid #FF0017;
+	transition: .3s ease-in-out;
+}
+
+.delete_article {
+	color: #ffffff;
+	text-decoration: none;
+	user-select: none;
+	background: #F6C100;
+	padding: .5em 1.5em;
+	outline: none;
+	margin: 5px; 
+	border: 1px solid #F6C100;
+}
+
+.delete_article:hover {
+	background: #FFDD00;
+	border: 1px solid #F9AE17;
+	transition: .3s ease-in-out;
+}
+
+.edit_article {
+	color: #ffffff;
+	text-decoration: none;
+	user-select: none;
+	background: #51973A;
+	padding: .5em 1.5em;
+	outline: none;
+	margin: 5px;
+	border: 1px solid #51973A; 
+}
+
+.edit_article:hover {
+	background: #5EAF43;
+	transition: .3s ease-in-out;
+	border: 1px solid #008000;
+}
+
+.pages_panel{
+	display: flex;
+	padding: 7px 15px;
+	background-color: #454545;
+	box-shadow: 2px 4px 10px black;
+}
+
+.pages_panel > div {
+	margin: auto;
+}
+
+.page_button {
+  position: relative;
+  display: inline-block;
+  font-size: 90%;
+  font-weight: 700;
+  color: rgb(209,209,217);
+  text-decoration: none;
+  text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+  padding: .5em 1em;
+  outline: none;
+  border-radius: 3px;
+  background: linear-gradient(rgb(110,112,120), rgb(81,81,86)) rgb(110,112,120);
+  box-shadow:
+   0 1px rgba(255,255,255,.2) inset,
+   0 3px 5px rgba(0,1,6,.5),
+   0 0 1px 1px rgba(0,1,6,.2);
+  transition: .2s ease-in-out;
+}
+
+.page_button:hover:not(:active) {
+  background: linear-gradient(rgb(126,126,134), rgb(70,71,76)) rgb(126,126,134);
+}
+
+.page_button:active {
+  top: 1px;
+  background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
+  box-shadow:
+   0 0 1px rgba(0,0,0,.5) inset,
+   0 2px 3px rgba(0,0,0,.5) inset,
+   0 1px 1px rgba(255,255,255,.1);
+}
+
+.pages_panel > div{
+
+}

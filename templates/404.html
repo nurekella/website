@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+	<!-- Здесь находятся разные метаданные -->
+	<head>
+		<meta charset='utf-8'>
+		<meta content="сайт">
+		<title>Мой первый сайт</title>
+		<link href="{{url_for('static', filename='images/favicon.png')}}" rel="shortcut icon" type="image/x-icon">
+		<link href="{{url_for('static', filename='css/index.css')}}" rel="stylesheet" type="text/css">
+		<link href="{{url_for('static', filename='css/404.css')}}" rel="stylesheet" type="text/css">
+
+		<script type="text/javascript" src="https://kit.fontawesome.com/f8dc58df69.js" crossorigin="anonymous"></script>
+	</head>
+	
+	<!-- Шапка сайта -->
+	<headre>
+		<div class="header">
+			<div></div>
+			<div id="logo"><img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100"></div>
+			<div id="site_title"><h1>Мой первый сайт</h1></div>
+			<div id="logo"><img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100"></div>
+			<div></div>	
+		</div>
+	</headre>
+
+	<!-- Тело сайта -->
+	<body>
+		<nav>
+			<div class="menu">
+				<div class="menu_list">
+					<a class="menu_item" href="index"><i class="icon fas fa-bars"></i>Главная</a>
+					<a class="menu_item" href="news"><i class="icon far fa-newspaper"></i>Новости</a>
+					<a class="menu_item" href="gallery"><i class="icon far fa-image"></i>Галерея</a>
+					<a class="menu_item" href="about"><i class="icon fas fa-address-card"></i>О нас</a>
+					<div class="line"></div>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="center">
+			<aside>
+				<div>
+					<div class="st_nav">
+					  <ul class="st_ul">
+					    <li class="st_li st_li_1"><a href="index" class="st_a anchor">Главная</a></li>
+					    <li class="st_li st_li_3"><a href="news" class="st_a anchor">Новости</a></li>
+					    <li class="st_li st_li_2"><a href="gallery" class="st_a anchor">Галерея</a></li>
+					    <li class="st_li st_li_4"><a href="about" class="st_a anchor">О нас</a></li>
+					  </ul>
+					</div>
+				</div>
+			</aside>
+
+			<div class="content">
+				<div class="file_not_fount">
+					<div class="wrapper">
+						<img class="image" src="{{url_for('static', filename='images/404.png')}}">
+					</div>
+					<div class="wrapper">
+						<p class="oops">УПС... Страница которую вы ищете, к сожалению, не найдена.</p>
+					</div>					
+					<div class="wrapper">
+						<a class="back_button" href="{{url_for('.index')}}"> Вернуться на главную </a>
+					</div>
+				</div>
+
+			</div>
+			<!-- Пустой блок справа от тела сайта -->
+			<div></div>
+		<!-- Конец блока center -->
+		</div>
+		<footer>
+			<div class="footer_grid">
+				<div>
+					<img src="{{url_for('static', filename='images/html_logo.png')}}" alt="Логотип HTML5" width="100" height="100">
+				</div>
+
+				<div>
+
+					<p class="footer_title">О нас:</p>
+					<p class="footer_item"> Условия использования</p>
+					<p class="footer_item"> Конфиденциальность</p>
+					<p class="footer_item"> Внести вклад в развитие</p>
+				</div>
+				<div>
+					<p class="footer_title">Контактные данные:</p>
+					<p class="footer_item">Владислав Лукьянчук</p>
+					<p class="footer_item">public_email_vlc@ukr.net</p>
+					<p class="footer_item">@username</p>
+				</div>
+
+				<div>
+					<p class="footer_title">Поддержка:</p>
+					<p class="footer_item">FAQ</p>
+					<p class="footer_item">Чат-бот</p>
+					<p class="footer_item">Форум</p>
+				</div>
+				
+				<!-- Ссылки на социальные сети -->
+				<div>
+					<div>
+						<a class="social_networks telegram" href="#"><i class="fab fa-telegram-plane"></i></a>
+						<a class="social_networks vk" href="#"><i class="fab fa-vk"></i></a>
+						<a class="social_networks fb" href="#"><i class="fab fa-facebook-f"></i></a>
+					</div>
+					<div class="share">
+						Поделиться
+					</div>
+				</div>
+			</div>
+			<!-- Нижняя линия копирайта -->
+			<div class="copyrigth">
+				<div> © 2021 copyrigth text</div>
+			</div>
+		</footer>
+		</div>
+	</body>
+</html>

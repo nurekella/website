@@ -1,0 +1,39 @@
+body {
+	margin: 0px;
+	padding: 0px; 
+}
+
+.main {
+	background-color: #000000;
+	width: 219px;
+	height: auto;
+	padding-top: 5px;
+	padding-bottom: 11px;
+}
+
+.button {
+	display: block;
+	padding: 10px 20px; 
+	margin: 15px 10px 0px 10px;
+	border: 0px;
+	width: 150px;
+	text-decoration: none;
+	text-align: center;
+	color: #000000;
+	background-color: #454545;
+	border-bottom: 2px solid #454545;
+}
+
+.button:hover {
+	border-bottom: 2px solid #0226f2;
+	transition: 0.5s border-bottom;
+}
+
+.title {
+	display: block;
+	margin: 10px 20px 10px 20px;
+	text-align: center;
+	color: #ffffff;
+	font-size: 20px;
+	text-align: center;
+}
